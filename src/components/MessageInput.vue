@@ -43,7 +43,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 textarea {
-  width: 15cm;
+  width: 12cm;
   height: 2cm;
   font-size: 14pt;
   border-radius: 10px;
