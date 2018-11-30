@@ -1,7 +1,7 @@
 <template>
   <div class="message-input">
     <textarea v-model="message" :class="{ tooLong: message.length > maxLength }"></textarea>
-    <p><input type="button" :disabled="message.length > maxLength" value='Verstuur' /></p>
+    <p><button v-on:click="post" :disabled="message.length > maxLength">Verstuur</button></p>
     <p><b>Lengte:</b> {{ message.length }} / {{ maxLength }}
     (<span v-if="message.length <= maxLength">nog {{ maxLength - message.length}} tekens over</span>
      <span v-else>{{ message.length - maxLength }} tekens teveel</span>)
@@ -36,6 +36,13 @@ export default {
         return 0;
       return m.split(/\s+/).length;
     }
+  },
+
+  methods: {
+    post: function (event) {
+      console.log("Posting message: " + this.message);
+      this.$emit('post-message', this.message);
+    }
   }
 }
 </script>
@@ -54,7 +61,7 @@ textarea.tooLong {
   background-color: #fdd;
 }
 
-input[type=button] {
+button {
   font-size: 14pt;
 }
 </style>

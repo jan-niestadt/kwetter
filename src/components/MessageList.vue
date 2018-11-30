@@ -15,22 +15,13 @@ export default {
   // Values this component receives from its parent
   // Don't change these inside the component!
   props: {
+    messages: Array
   },
 
   components: {
     Message
-  },
-
-  // Internal variables for this component
-  data: function () {
-    return {
-      messages: [
-        'Is het "dat lemma" of "dilemma"? ;-)',
-        'Gele kaart voor slechte woordgrappen!',
-        'Zalmsalade op brood vandaag. Yum!'
-      ]
-    }
   }
+
 }
 </script>
 

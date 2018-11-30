@@ -2,9 +2,9 @@
   <div id="app">
     <div>
       <h1><img alt="INT kwetter logo" src="./assets/kwetter.png">Welkom bij INT Kwetter</h1>
-      <MessageInput :initialMessage="placeholderText" :maxLength="40" />
+      <MessageInput v-on:post-message="postMessage($event)" :initialMessage="placeholderText" :maxLength="40" />
     </div>
-    <MessageList />
+    <MessageList :messages="messages" />
   </div>
 </template>
 
@@ -19,8 +19,18 @@ export default {
   },
   data: function() {
     return {
-      placeholderText: "Typ hier iets."
+      placeholderText: "Typ hier iets.",
+      messages: [
+        'Is het "dat lemma" of "dilemma"? ;-)',
+        'Gele kaart voor slechte woordgrappen!',
+        'Zalmsalade op brood vandaag. Yum!'
+      ]
     };
+  },
+  methods: {
+    postMessage: function(message) {
+      this.messages.push(message);
+    }
   }
 }
 </script>
