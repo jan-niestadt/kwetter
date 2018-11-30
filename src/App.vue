@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="INT kwetter logo" src="./assets/kwetter.png">
     <h1>Welkom bij INT Kwetter</h1>
-    <MessageInput :initialMessage="placeholderText" />
+    <MessageInput :initialMessage="placeholderText" :maxLength="60" />
   </div>
 </template>
 

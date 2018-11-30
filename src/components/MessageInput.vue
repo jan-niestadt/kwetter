@@ -2,8 +2,7 @@
   <div class="message-input">
     <textarea v-model="message"></textarea>
     <p><b>Je bericht:</b> {{ message }}</p>
-    <p><b>Lengte van je bericht:</b> {{ message.length }}</p>
-    <p><b>Letters over:</b> {{ 140 - message.length }}</p>
+    <p><b>Lengte:</b> {{ message.length }} / {{ maxLength }} (nog {{ maxLength - message.length}} tekens over)</p>
     <p><b>Aantal woorden:</b> {{ numberOfWords }}</p>
   </div>
 </template>
@@ -15,6 +14,7 @@ export default {
   // Don't change these inside the component!
   props: {
     // Initial value for our data property
+    maxLength: Number,
     initialMessage: String
   },
 
@@ -28,7 +28,10 @@ export default {
   // Dynamically calculate a property
   computed: {
     numberOfWords: function () {
-      return this.message.trim().split(/\s+/).length;
+      let m = this.message.trim();
+      if (m.length === 0)
+        return 0;
+      return m.split(/\s+/).length;
     }
   }
 }
