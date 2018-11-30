@@ -1,8 +1,11 @@
 <template>
   <div class="message-input">
-    <textarea v-model="message"></textarea>
-    <p><b>Je bericht:</b> {{ message }}</p>
-    <p><b>Lengte:</b> {{ message.length }} / {{ maxLength }} (nog {{ maxLength - message.length}} tekens over)</p>
+    <textarea v-model="message" :class="{ tooLong: message.length > maxLength }"></textarea>
+    <p><input type="button" :disabled="message.length > maxLength" value='Verstuur' /></p>
+    <p><b>Lengte:</b> {{ message.length }} / {{ maxLength }}
+    (<span v-if="message.length <= maxLength">nog {{ maxLength - message.length}} tekens over</span>
+     <span v-else>{{ message.length - maxLength }} tekens teveel</span>)
+    </p>
     <p><b>Aantal woorden:</b> {{ numberOfWords }}</p>
   </div>
 </template>
@@ -41,9 +44,17 @@ export default {
 <style scoped>
 textarea {
   width: 15cm;
-  height: 3cm;
+  height: 2cm;
   font-size: 14pt;
   border-radius: 10px;
   padding: 10px;
+}
+
+textarea.tooLong {
+  background-color: #fdd;
+}
+
+input[type=button] {
+  font-size: 14pt;
 }
 </style>
