@@ -38,10 +38,23 @@ export default {
     }
   },
 
+  mounted: function () {
+    this.$nextTick(function () {
+      // Code that will run only after the
+      // entire view has been rendered
+      let el = this.$el;
+      setTimeout(function() {
+        el.children[0].focus(); // focus on textarea
+      }, 100);
+    });
+  },
+
   methods: {
-    post: function (event) {
-      console.log("Posting message: " + this.message);
+    post: function () {
+      //console.log("Posting message: " + this.message);
       this.$emit('post-message', this.message);
+      this.message = '';
+      this.$el.children[0].focus(); // focus on textarea
     }
   }
 }
