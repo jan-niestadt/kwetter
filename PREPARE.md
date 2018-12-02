@@ -19,7 +19,7 @@ Verder kun je je hier vast een beetje inlezen:
 
 * [Vue introductie](https://vuejs.org/v2/guide/)
 * [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-
+* [Vuex intro tutorial](https://www.youtube.com/watch?v=_2_C9j-8CtM) (video)
 
 ## Installeer Node.js
 

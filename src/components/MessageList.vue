@@ -1,10 +1,7 @@
 <template>
-  <div class='messageList'>
-    <h2>Berichten</h2>
-    <ul>
-      <Message v-for="(message, index) in messages" :message="message" :index="index" :key="index" />
-    </ul>
-  </div>
+  <ul>
+    <Message v-for="(message, index) in messages.slice().reverse()" :message="message" :index="index" :key="index" />
+  </ul>
 </template>
 
 <script>
@@ -28,21 +25,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-div.messageList {
-  padding: 10px;
-  background-color: #eef;
-}
-
 ul {
-  padding-left: 0;
-}
-ul li {
-  list-style-type: none;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  max-width: 500px;
-  background-color: lightblue;
+  padding: 0 10px 10px 10px;
 }
 </style>

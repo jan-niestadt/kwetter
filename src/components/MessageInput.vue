@@ -1,12 +1,18 @@
 <template>
   <div class="message-input">
-    <textarea v-model="message" :class="{ tooLong: message.length > maxLength }"></textarea>
-    <p><button v-on:click="post" :disabled="message.length > maxLength">Verstuur</button></p>
-    <p><b>Lengte:</b> {{ message.length }} / {{ maxLength }}
-    (<span v-if="message.length <= maxLength">nog {{ maxLength - message.length}} tekens over</span>
-     <span v-else>{{ message.length - maxLength }} tekens teveel</span>)
+    <p class='username'><input type='text' v-model="name" :class="{ invalid: name.length === 0 }" placeholder="Wie ben je?" /></p>
+    <textarea 
+      v-model="message" 
+      :class="{ invalid: message.length > maxLength }" 
+      :placeholder="placeholderText" 
+      autofocus
+      @keydown.enter.exact.prevent
+      @keyup.enter.exact="post"
+      ></textarea>
+    <p>
+      <button @click="post" :disabled="canPostMessage === false">Verstuur</button>
+      ({{ numberOfWords }} woorden, {{ message.length }} / {{ maxLength }} tekens ({{ messageLengthComment }})
     </p>
-    <p><b>Aantal woorden:</b> {{ numberOfWords }}</p>
   </div>
 </template>
 
@@ -18,27 +24,45 @@ export default {
   props: {
     // Initial value for our data property
     maxLength: Number,
-    initialMessage: String
+    placeholderText: String
   },
 
   // Internal variables for this component
   data: function () {
     return {
-      message: this.initialMessage // initialized from prop
+      message: "",
+      name: ""
     }
   },
 
   // Dynamically calculate a property
   computed: {
+
+    messageLengthComment: function () {
+      if (this.message.length <= this.maxLength)
+        return `nog ${this.maxLength - this.message.length} tekens over`;
+      if (this.message.length < this.maxLength * 1.5)
+        return `${this.message.length - this.maxLength} tekens teveel`;
+      return `Hee, rustig aan, Dostoevsky!`;
+    },
+
     numberOfWords: function () {
       let m = this.message.trim();
       if (m.length === 0)
         return 0;
       return m.split(/\s+/).length;
+    },
+
+    canPostMessage: function () {
+      return this.name.length > 0 && this.message.length > 0 && this.message.length <= this.maxLength;
     }
+
   },
 
   mounted: function () {
+
+/*
+    // DOES NOT WORK... WHY?
     this.$nextTick(function () {
       // Code that will run only after the
       // entire view has been rendered
@@ -47,14 +71,22 @@ export default {
         el.children[0].focus(); // focus on textarea
       }, 100);
     });
+*/
+
   },
 
   methods: {
     post: function () {
-      //console.log("Posting message: " + this.message);
-      this.$emit('post-message', this.message);
-      this.message = '';
-      this.$el.children[0].focus(); // focus on textarea
+      if (this.canPostMessage) {
+        //console.log("Posting message: " + this.message);
+        this.$emit('post-message', {
+          user: this.name,
+          message: this.message,
+          time: new Date()
+        });
+        this.message = '';
+        this.$el.children[1].focus(); // focus on textarea
+      }
     }
   }
 }
@@ -62,19 +94,38 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-textarea {
-  width: 12cm;
-  height: 2cm;
-  font-size: 14pt;
-  border-radius: 10px;
+.message-input {
   padding: 10px;
 }
 
-textarea.tooLong {
+p.username {
+  font-size: 14pt;
+}
+
+p.username input {
+  padding: 6px;
+  border: 2px solid #aaf;
+  border-radius: 4px;
+}
+
+p.username input {
+  font-size: 14pt;
+}
+
+textarea {
+  width: 14cm;
+  height: 2cm;
+  font-size: 14pt;
+  border: 2px solid #aaf;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.invalid {
   background-color: #fdd;
 }
 
 button {
-  font-size: 14pt;
+  font-size: 12pt;
 }
 </style>

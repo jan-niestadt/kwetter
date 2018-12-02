@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <div>
-      <h1><img alt="INT kwetter logo" src="./assets/kwetter.png">Welkom bij INT Kwetter</h1>
-      <MessageInput v-on:post-message="postMessage($event)" :initialMessage="placeholderText" :maxLength="40" />
+    <div class='topbar'>
+      <img alt="Kwetter logo" src="./assets/kwetter.png">
+      <h1>Kwetter</h1>
     </div>
-    <MessageList :messages="messages" />
+    <div class='components'>
+      <MessageInput v-on:post-message="postMessage($event)" :placeholderText="placeholderText" :maxLength="40" />
+      <MessageList :messages="messages" />
+    </div>
   </div>
 </template>
 
@@ -19,11 +22,23 @@ export default {
   },
   data: function() {
     return {
-      placeholderText: "Typ hier iets.",
+      placeholderText: "Wat is er aan de hand?",
       messages: [
-        'Is het "dat lemma" of "dilemma"? ;-)',
-        'Gele kaart voor slechte woordgrappen!',
-        'Zalmsalade op brood vandaag. Yum!'
+        {
+          user: 'Jan',
+          message: 'Is het "dat lemma" of "dilemma"? ;-)',
+          time: new Date()
+        },
+        {
+          user: 'Marco',
+          message: 'Gele kaart voor slechte woordgrappen',
+          time: new Date()
+        },
+        {
+          user: 'Mathieu',
+          message: 'McDonalds lunch vandaag. Yum!',
+          time: new Date()
+        }
       ]
     };
   },
@@ -41,16 +56,28 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  max-width: 15cm;
 }
 
 img {
-  width: 64px;
+  float: left;
+  width: 56px;
+  padding-right: 10px;
 }
 
 h1 {
-  padding-top: 0;
+  padding: 10px;
+  margin: 0;
 }
+
+.components {
+  clear: both;
+  /*
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  */
+}
+
 </style>
