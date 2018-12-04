@@ -77,3 +77,9 @@ Visual Studio Code is een open source IDE van Microsoft die met name erg geschik
 Het *Vue VS Code Extensions pack* is een verzameling plugins die het werken met Vue prettiger maken, met syntax highlighting, slimme autocomplete, etc.
 
 Start VS Code, ga naar Extensions (vijfde icon van boven aan de linkerkant), zoek naar "Vue VS Code Extension pack" en installeer het. Klik daarna op Reload om de plugins te activeren.
+
+### Installeer Vue browser plugin
+Deze plugin maakt het heel eenvoudig en prettig om Vue-applicaties te debuggen.
+
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+- [Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)

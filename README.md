@@ -2,7 +2,7 @@
 
 Een testproject voor de INT Vue.js workshop van 11 december 2018.
 
-Handige [voorbereiding voor de workshop](PREPARE.md).
+Handige [voorbereiding voor de workshop](VOORBEREIDEN.md).
 
 
 ## TODO

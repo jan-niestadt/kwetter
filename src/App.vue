@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class='topbar'>
-      <img alt="Kwetter logo" src="./assets/kwetter.png">
       <h1>Kwetter</h1>
     </div>
     <div class='components'>
@@ -26,17 +25,17 @@ export default {
       messages: [
         {
           user: 'Jan',
-          message: 'Is het "dat lemma" of "dilemma"? ;-)',
+          message: 'Test 1',
           time: new Date()
         },
         {
           user: 'Marco',
-          message: 'Gele kaart voor slechte woordgrappen',
+          message: 'Test 2',
           time: new Date()
         },
         {
           user: 'Mathieu',
-          message: 'McDonalds lunch vandaag. Yum!',
+          message: 'Test 3',
           time: new Date()
         }
       ]

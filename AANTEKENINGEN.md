@@ -1,6 +1,6 @@
-# Notes about learning Vue
+# Aantekeningen over Vue leren
 
-## Difficult
+## Lastig
 
 ### Props vs. data properties
 
@@ -27,8 +27,12 @@ Alles via events, die door de parent kunnen worden opgepakt.
 
 ## Vragen
 
-- Waarom mag je console niet gebruiken? Meest praktische manier om hier tijdens debuggen geen last van te hebben?
+- Waarom mag je console.log() niet gebruiken?
+  Wat is de meest praktische manier om hier tijdens debuggen geen last van te hebben?
+
 - Wat is de correcte manier om de focus op een element te zetten? Werkt in post() method maar niet vanuit mounted() handler.
   Ook niet als je met nextTick of setTimeout werkt...
+
   Algemener: hoe refereer je naar een bepaald HTML-element binnen je template? Nu met .children[0] gedaan, maar is niet zo elegant
+  
 - 
