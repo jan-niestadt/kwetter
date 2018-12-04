@@ -1,89 +1,73 @@
 <template>
-  <div class="message-input">
-    <p class='username'><input type='text' v-model="name" :class="{ invalid: name.length === 0 }" placeholder="Wie ben je?" /></p>
+  <div>
+    <p class='username'>
+      <input
+        ref="fieldUserName"
+
+        type='text' 
+        placeholder="Wie ben je?"
+        :class="{ invalid: value.user.length === 0 }" 
+
+        :value="value.user" 
+        @input="valueChanged" />
+    </p>
     <textarea 
       ref="myTextArea"
-      v-model="message" 
-      :class="{ invalid: message.length > maxLength }" 
-      :placeholder="placeholderText" 
+
+      placeholder="Wat is er aan de hand?" 
       autofocus
+      :class="{ invalid: value.message.length > maxLength }" 
+
       @keydown.enter.exact.prevent
       @keyup.enter.exact="post"
+
+      :value="value.message"
+      @input="valueChanged" 
       ></textarea>
-    <p>
-      <button @click="post" :disabled="canPostMessage === false">Verstuur</button>
-      ({{ numberOfWords }} woorden, {{ message.length }} / {{ maxLength }} tekens ({{ messageLengthComment }})
-    </p>
+    <button @click="post" :disabled="!canPostMessage">Verstuur</button>
   </div>
 </template>
 
 <script>
 export default {
 
-  // Values this component receives from its parent
-  // Don't change these inside the component!
+  // Waardes die dit component ontvangt van de parent.
+  // Niet wijzigen in dit component!
   props: {
-    // Initial value for our data property
+    value: Object,
     maxLength: Number,
     placeholderText: String
   },
 
-  // Internal variables for this component
-  data: function () {
-    return {
-      message: "",
-      name: ""
-    }
-  },
-
-  // Dynamically calculate a property
+  // Dynamisch berekende props
   computed: {
 
-    messageLengthComment: function () {
-      if (this.message.length <= this.maxLength)
-        return `nog ${this.maxLength - this.message.length} tekens over`;
-      if (this.message.length < this.maxLength * 1.5)
-        return `${this.message.length - this.maxLength} tekens teveel`;
-      return `Hee, rustig aan, Dostoevsky!`;
-    },
-
-    numberOfWords: function () {
-      let m = this.message.trim();
-      if (m.length === 0)
-        return 0;
-      return m.split(/\s+/).length;
-    },
-
+    // Kan het bericht geplaatst worden, of niet? (leeg, te lang of geen naam gegeven)
     canPostMessage: function () {
-      return this.name.length > 0 && this.message.length > 0 && this.message.length <= this.maxLength;
+      return this.value.user.length > 0 && this.value.message.length > 0 && this.value.message.length <= this.maxLength;
     }
 
   },
 
-  mounted: function () {
-
-/*
-    this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been rendered
-      this.$refs.myTextArea.focus(); // focus on textarea
-    });
-    */
-
-  },
-
+  // Methods die je bijv. kunt aanroepen in reactie op events
   methods: {
+
+    // Wordt aangeroepen als de Verstuur knop ingedrukt wordt
     post: function () {
       if (this.canPostMessage) {
-        //console.log("Posting message: " + this.message);
-        this.$emit('post-message', {
-          user: this.name,
-          message: this.message,
-          time: (new Date()).getTime()
-        });
-        this.message = '';
-        this.$el.children[1].focus(); // focus on textarea
+        // Stuur het "post-message" event dat onze parent afhandelt door het bericht te plaatsen
+        this.$emit('post-message');
+        // Zet de focus
+        this.$refs.myTextArea.focus();
       }
+    },
+
+    // Wordt aangeroepen als de waarde van user of message verandert
+    valueChanged: function () {
+      this.$emit('input', {
+        user: this.$refs.fieldUserName.value,
+        message: this.$refs.myTextArea.value
+      });
     }
   }
 }
@@ -91,31 +75,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.message-input {
+div {
   padding: 10px;
 }
 
-p.username {
-  font-size: 14pt;
-}
-
-p.username input {
+input, textarea {
   padding: 6px;
   border: 2px solid #aaf;
   border-radius: 4px;
-}
-
-p.username input {
   font-size: 14pt;
 }
 
 textarea {
   width: 14cm;
   height: 2cm;
-  font-size: 14pt;
-  border: 2px solid #aaf;
-  border-radius: 4px;
-  padding: 6px;
 }
 
 .invalid {
@@ -124,5 +97,6 @@ textarea {
 
 button {
   font-size: 12pt;
+  margin-top: 10px;
 }
 </style>

@@ -1,7 +1,7 @@
 <?php
 
 // Where to store messages
-define("MESSAGES_FILE", "/tmp/messages.json");
+define("MESSAGES_FILE", "kwetter_messages/messages.json");
 
 $messages = [];
 if (file_exists(MESSAGES_FILE))

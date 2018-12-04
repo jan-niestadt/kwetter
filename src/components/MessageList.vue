@@ -5,26 +5,22 @@
 </template>
 
 <script>
-import Message from './Message.vue'
+import Message from './Message.vue';
 
 export default {
 
-  // Values this component receives from its parent
-  // Don't change these inside the component!
-  props: {
-    messages: Array
-  },
-
   components: {
     Message
+  },
+
+  props: {
+    messages: Array
   }
 
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 ul {
   padding: 0 10px 10px 10px;
 }

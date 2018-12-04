@@ -1,18 +1,20 @@
 <template>
-  <li><b>{{ message.user }}</b><span class='time-ago'>{{ timeAgo }}</span><br/>{{ message.message }}</li>
+  <li>
+    <b>{{ message.user }}</b>
+    <span class='time-ago'>{{ timeAgo }}</span><br/>
+    {{ message.message }}
+  </li>
 </template>
 
 <script>
 export default {
 
-  // Values this component receives from its parent
-  // Don't change these inside the component!
   props: {
-    // Initial value for our data property
     message: Object,
     index: Number
   },
 
+  // Dynamisch berekende props
   computed: {
     timeAgo: function () {
       let s = Math.floor( ((new Date()).getTime() - this.message.time) / 1000 );
@@ -31,7 +33,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 li {
   list-style-type: none;
@@ -47,5 +48,4 @@ li {
   font-size: 80%;
   color: #888;
 }
-
 </style>
