@@ -79,7 +79,7 @@ export default {
         this.$emit('post-message', {
           user: this.name,
           message: this.message,
-          time: new Date()
+          time: (new Date()).getTime()
         });
         this.message = '';
         this.$el.children[1].focus(); // focus on textarea

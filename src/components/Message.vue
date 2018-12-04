@@ -15,7 +15,7 @@ export default {
 
   computed: {
     timeAgo: function () {
-      let s = Math.floor( ((new Date()).getTime() - this.message.time.getTime()) / 1000 );
+      let s = Math.floor( ((new Date()).getTime() - this.message.time) / 1000 );
       if (s < 20)
         return `zojuist`;
       if (s < 60)

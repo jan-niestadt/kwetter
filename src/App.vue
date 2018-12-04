@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import MessageInput from './components/MessageInput.vue'
 import MessageList from './components/MessageList.vue'
 
@@ -22,34 +23,28 @@ export default {
   data: function() {
     return {
       placeholderText: "Wat is er aan de hand?",
-      messages: [
-        {
-          user: 'Jan',
-          message: 'Test 1',
-          time: new Date()
-        },
-        {
-          user: 'Marco',
-          message: 'Test 2',
-          time: new Date()
-        },
-        {
-          user: 'Mathieu',
-          message: 'Test 3',
-          time: new Date()
-        }
-      ]
+      messages: []
     };
+  },
+  mounted: function () {
+    // Post message to backend
+    Vue.axios.get("http://localhost/kwetter.php").then((response) => {
+      this.messages = response.data;
+    });
   },
   methods: {
     postMessage: function(message) {
-      this.messages.push(message);
+      //this.messages.push(message);
 
-      /*
-      Vue.axios.get(api).then((response) => {
-        console.log(response.data)
-      })
-      */
+      // Post message to backend
+      let params = new URLSearchParams();
+      params.append('message', message.message );
+      params.append('user', message.user );
+      params.append('time', message.time );
+      Vue.axios.post("http://localhost/kwetter.php", params).then((response) => {
+        //console.log(response.data);
+        this.messages = response.data;
+      });
     }
   }
 }
