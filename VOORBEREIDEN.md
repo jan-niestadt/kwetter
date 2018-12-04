@@ -68,8 +68,7 @@ TypeScript is een superset van Javascript met optionele typing. De TypeScript co
 vue-cli (Vue command-line interface) maakt het eenvoudig om een Vue project op te zetten.
 
 ```
-[sudo] npm install -g @vue/cli
-[sudo] npm install -g @vue/cli-init
+[sudo] npm install -g @vue/cli @vue/cli-init
 ```
 
 ## Installeer Visual Studio Code

@@ -2,6 +2,7 @@
   <div class="message-input">
     <p class='username'><input type='text' v-model="name" :class="{ invalid: name.length === 0 }" placeholder="Wie ben je?" /></p>
     <textarea 
+      ref="myTextArea"
       v-model="message" 
       :class="{ invalid: message.length > maxLength }" 
       :placeholder="placeholderText" 
@@ -62,16 +63,12 @@ export default {
   mounted: function () {
 
 /*
-    // DOES NOT WORK... WHY?
     this.$nextTick(function () {
       // Code that will run only after the
       // entire view has been rendered
-      let el = this.$el;
-      setTimeout(function() {
-        el.children[0].focus(); // focus on textarea
-      }, 100);
+      this.$refs.myTextArea.focus(); // focus on textarea
     });
-*/
+    */
 
   },
 

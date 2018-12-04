@@ -44,6 +44,12 @@ export default {
   methods: {
     postMessage: function(message) {
       this.messages.push(message);
+
+      /*
+      Vue.axios.get(api).then((response) => {
+        console.log(response.data)
+      })
+      */
     }
   }
 }
