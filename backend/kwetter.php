@@ -19,12 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Write the new messages file
     file_put_contents(MESSAGES_FILE, json_encode($messages, JSON_PRETTY_PRINT));
 
-} else {
-
-    // Return the messages so far
-    header("Content-Type: application/json");
-    print json_encode($messages);
-
 }
+
+// Return the messages so far
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+print json_encode($messages);
 
 ?>
