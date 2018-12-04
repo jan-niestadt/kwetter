@@ -12,6 +12,8 @@ Het is handig om voor de workshop alvast de volgende software op je laptop te in
   Commandline tool voor Vue projecten
 * **Visual Studio Code**<br>
   Web development IDE
+* **Vue devtools browser plugin**<br>
+  Debugger voor Vue applicaties
 
 Hieronder staan gedetailleerde instructies.
 
@@ -82,7 +84,7 @@ Het *Vue VS Code Extensions pack* is een verzameling plugins die het werken met 
 
 Start VS Code, ga naar Extensions (vijfde icon van boven aan de linkerkant), zoek naar "Vue VS Code Extension pack" en installeer het. Klik daarna op Reload om de plugins te activeren.
 
-### Installeer Vue browser plugin
+### Installeer Vue devtools browser plugin
 Deze plugin maakt het heel eenvoudig en prettig om Vue-applicaties te debuggen.
 
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
