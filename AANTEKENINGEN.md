@@ -10,19 +10,21 @@ Props 'stromen' alleen van parent component naar child components; als de parent
 
 Wijzig dus geen props in het child component. Vue geeft een warning als je dat doet en het doet waarschijnlijk niet wat je wilt. Als je in het cihld component een veranderlijke waarde wilt bijhouden, doe dat dan in een data property.
 
+data properties zijn de interne state van het component
+
 (see https://vuejs.org/v2/guide/components-props.html)
 
 ### Data binding: v-bind and v-model
 
 Wat is het verschil tussen v-bind en v-model?
 
-v-bind is eenrichtingverkeer, v-model tweerichtingverkeer. Maar als je v-model op je eigen componenten wilt gebruiken, moet je wel zelf specificeren hoe het tweerichtingverkeer werkt (d.m.v. events).
+v-bind is eenrichtingverkeer, v-model tweerichtingverkeer. Maar als je v-model op je eigen componenten wilt gebruiken, moet je wel zelf specificeren hoe het tweerichtingverkeer werkt (d.m.v. input event).
 
 ### Two-way binding
 
 Hoe deel je eenvoudig variabele data tussen componenten? (bijv. typ bericht in 1 component, ander component toont het)
 
-Alles via events, die door de parent kunnen worden opgepakt.
+Alles via events, die door de parent kunnen worden opgepakt. Alternatief is Vuex.
 
 
 ## Vragen
@@ -30,9 +32,13 @@ Alles via events, die door de parent kunnen worden opgepakt.
 - Waarom mag je console.log() niet gebruiken?
   Wat is de meest praktische manier om hier tijdens debuggen geen last van te hebben?
 
+  check of in debug    NODE_ENV === 'debug' || 'prod'
+
 - Wat is de correcte manier om de focus op een element te zetten? Werkt in post() method maar niet vanuit mounted() handler.
   Ook niet als je met nextTick of setTimeout werkt...
 
   Algemener: hoe refereer je naar een bepaald HTML-element binnen je template? Nu met .children[0] gedaan, maar is niet zo elegant
+
+  antwoord: ref
   
 - 

@@ -2,6 +2,10 @@
 
 ## Voorbeeldprojectje Kwetter
 
+Typescript of niet?
+
+Sass gebruiken, toch wel erg handig
+
 1. Invoerveld-component dat van kleur verandert als je teveel (maxLength property) of geen tekens invoert.
 2. Tweede component dat weergeeft hoeveel tekens / woorden je hebt ingevoerd, en hoeveel tekens je nog hebt; communicatie via parent-component
    (computed property)
@@ -21,6 +25,7 @@ Wat is het precies?
 ### Waarom zo'n framework nodig?
 Waarom zouden we niet gewoon alles in plain JavaScript of met jQuery doen?
 - complexe dynamische pagina's netjes structureren
+- reactivity
 - ...
 
 ### Waarom allerlei extra tools nodig? (npm, etc.)
@@ -35,13 +40,16 @@ Tools doen een hoop voor je:
 ### Vergelijking Angular/React/WebComponents
 Waarom hebben we voor Vue gekozen en niet voor de bekendere Angular/React? Of voor bijv. webcomponents met Polymer
 - ook goeie keuzes, maar Vue lijkt modernst, cleanst, productiefst, snelst te leren en best gedocumenteerd.
+- React vrij bare-bones, veel dependencies, iedereen kiest z'n eigen set. Vue heeft meer 'standaardcomponenten' zoals vue-router, vuex, etc.
 - Webcomponents, Polymer is een interessante ontwikkeling maar nog erg volatile en nog niet het makkelijkst in gebruik. Vue is met zeer vergelijkbare doelen gebouwd en kan ws. uiteindelijk under the hood web components gaan gebruiken, zodat je er toch van profiteert.
 - populariteit Vue is snel groeiende
 - ...
 
+
 ### Hoe brengt Vue structuur aan?
 Wat is het idee achter Vue precies?
 - self-contained componenten (HTML, Javascript, CSS) die elkaar niet in de weg zitten
+- template: component tags zijn in feite een soort constructors
 - ...
 
 ### Directory/file-structuur
@@ -56,3 +64,14 @@ Dirs/files:
 - src/components/
 - src/App.vue
 - src/main.js
+
+### npm library toevoegen
+
+npm install --save libraryname
+
+### Vue project maken
+
+vue create myproject
+
+vue init webpack-simple myproject
+

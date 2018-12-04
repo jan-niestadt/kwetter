@@ -18,6 +18,9 @@ Hieronder staan gedetailleerde instructies.
 Verder kun je je hier vast een beetje inlezen:
 
 * [Vue introductie](https://vuejs.org/v2/guide/)
+
+Als je de Vue introductie gezien hebt, kan dit misschien ook interessant zijn:
+
 * [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
 * [Vuex intro tutorial](https://www.youtube.com/watch?v=_2_C9j-8CtM) (video)
 
@@ -64,6 +67,7 @@ vue-cli (Vue command-line interface) maakt het eenvoudig om een Vue project op t
 
 ```
 [sudo] npm install -g @vue/cli
+[sudo] npm install -g @vue/cli-init
 ```
 
 ## Installeer Visual Studio Code

@@ -7,8 +7,12 @@ Handige [voorbereiding voor de workshop](VOORBEREIDEN.md).
 
 ## TODO
 
-- zorg dat @ mentions gekleurd worden
-- gebruik routing om de kwetters van 1 user te zien, en link @mentions naar die URL
+- maak een vinkje om te switchen tussen light / dark theme
+- zorg dat #hashtags / @ mentions gekleurd worden
+- tijdvermeldingen real-time zetten
+- zoeken; filter op auteur
+  extra credit: gebruik routing zodat de URL meeverandert
+
 - koppel aan simpel PHP script om kwetters te persisten
 
 
