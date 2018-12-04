@@ -2,15 +2,15 @@
 
 ## Voorbeeldprojectje Kwetter
 
-1. Invoerveld-component dat van kleur verandert als je teveel of geen tekens invoert
-2. Placeholder, maxLength properties aan component toevoegen
-3. Tweede component dat weergeeft hoeveel tekens / woorden je hebt ingevoerd, en hoeveel tekens je nog hebt; communicatie via parent-component
-4. MessageList component
-5. Post message to list
-6. Enter to post message; set focus to input
-7. [TODO] Heel simpel PHP backendje, communicatie met axios?
-8. (misschien) v-model op invoerveld-component gebruiken?
-9. (misschien) hoe zou je deze applicatie met vuex implementeren?
+1. Invoerveld-component dat van kleur verandert als je teveel (maxLength property) of geen tekens invoert.
+2. Tweede component dat weergeeft hoeveel tekens / woorden je hebt ingevoerd, en hoeveel tekens je nog hebt; communicatie via parent-component
+   (computed property)
+3. MessageList component
+4. Post message to list
+5. Add username (required input), post time
+5. Enter to post message; set focus to input
+6. [TODO] Heel simpel PHP backendje, communicatie met axios?
+8. (misschien) hoe zou je deze applicatie met vuex implementeren?
 
 ## Belangrijk om uit te leggen
 
