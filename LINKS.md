@@ -35,6 +35,8 @@ Alle data voor complexe Vue applicaties op een plek verzamelen.
 ## Server-side rendering: [Nuxt](https://medium.com/vue-mastery/10-reasons-to-use-nuxt-js-for-your-next-web-application-522397c9366b)
 Schrijf 'universele webapps' die zowel op de server als op de client kunnen renderen. Betere load times, SEO, etc.
 
+## Vue.js apps
+Vue.js werkt met [NativeScript](https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness) en [Ionic 4](https://github.com/ionic-team/ionic/tree/master/vue) om native resp. hybride apps te kunnen bouwen.
 
 # Andere nuttige Javascript-libraries
 
